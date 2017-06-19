@@ -225,9 +225,8 @@ public class Lista<T> implements Coleccion<T> {
     		n.anterior = tmp;
    			tmp.siguiente = n;
    			longitud++;
-    	}
-        
-    }
+    	}    
+  	}
 
     /**
      * Elimina un elemento de la lista. Si el elemento no está contenido en la
@@ -305,7 +304,7 @@ public class Lista<T> implements Coleccion<T> {
         if (cabeza == rabo) {
         	cabeza = rabo = null;
         } else {
-        	rabo.anterior = rabo;
+        	rabo = rabo.anterior;
         	rabo.siguiente.anterior = null;
         	rabo.siguiente = null;
 
