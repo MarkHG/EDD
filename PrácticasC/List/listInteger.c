@@ -4,16 +4,16 @@
 
 typedef struct node
 {
-	int element;
-	struct node* next;
-	struct node* previous;
+    int element;
+    struct node* next;
+    struct node* previous;
 } node;
 
 typedef struct list
 {
-	node* head;
-	node* tail;
-	int length;
+    node* head;
+    node* tail;
+    int length;
 } list;
 
 node* createNode(int);
@@ -31,31 +31,31 @@ int main() {
 
 node* createNode(int element)
 {
-	//if (element == NULL)
-		//return NULL;
+    //if (element == NULL)
+    	//return NULL;
 
-	node* newNode = (node*) calloc(1, sizeof(node));
+    node* newNode = (node*) calloc(1, sizeof(node));
 
-	if (newNode != NULL)
-	{
-		newNode -> element = element;
-		newNode -> next= NULL;
-		newNode -> previous = NULL;
-	}
-	return newNode;
+    if (newNode != NULL)
+    {
+    	newNode -> element = element;
+    	newNode -> next= NULL;
+    	newNode -> previous = NULL;
+    }
+    return newNode;
 }
 
 list* createList(void)
 {
-	list* newList = (list*) calloc(1, sizeof(list));
+    list* newList = (list*) calloc(1, sizeof(list));
 
-	if (newList != NULL)
-	{
-		newList -> head = NULL;
-		newList -> tail = NULL;
-		newList -> length = 0;
-	}
-	return newList;
+    if (newList != NULL)
+    {
+    	newList -> head = NULL;
+    	newList -> tail = NULL;
+    	newList -> length = 0;
+    }
+    return newList;
 }
 
 void add(list* l, int element)
