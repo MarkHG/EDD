@@ -4,7 +4,7 @@
 
 typedef struct node
 {
-	void* element;
+	int element;
 	struct node* next;
 	struct node* previous;
 } node;
@@ -16,12 +16,12 @@ typedef struct list
 	int length;
 } list;
 
-node* createNode(void*);
+node* createNode(int);
 list* createList(void);
-void add(list*, void*);
+void add(list*, int);
 bool isEmpty(list*);
-void* remove(list*, int);
-void* search(list*, int);
+int removeElement(list*, int);
+int search(list*, int);
 void printList(list*);
 
 int main() {
@@ -29,10 +29,10 @@ int main() {
     return 0;
 }
 
-node* createNode(void* element)
+node* createNode(int element)
 {
-	if (element == NULL)
-		return NULL;
+	//if (element == NULL)
+		//return NULL;
 
 	node* newNode = (node*) calloc(1, sizeof(node));
 
@@ -58,7 +58,7 @@ list* createList(void)
 	return newList;
 }
 
-void add(list* l, void* element)
+void add(list* l, int element)
 {
 	node* n = createNode(element);
 
@@ -87,11 +87,40 @@ bool isEmpty(list* l)
 
 }
 
-void* remove(list* l, int n)
+int removeElement(list* l, int n)
 {
+    if (isEmpty(l) || n < 0 || l -> length < n)
+        return -1;
 
+    node* tmp = l -> head;
+
+    for (int i = 0; i < n-1; i++)
+    {
+        tmp = tmp -> next;
+    }
+
+    return 0;
 }
 
 
-void* search(list*, int n);
-void printList(list*);
+int search(list* l, int n)
+{
+    if (isEmpty(l) || n < 0 || l -> length < n)
+        return -1;
+
+    node* tmp = l -> head;
+
+    for (int i = 0; i < n; i++)
+        tmp = tmp -> next;
+
+    return tmp -> element;
+}
+void printList(list* l)
+{
+    if (isEmpty(l))
+        printf("[ ]\n");
+
+    printf("[ ");
+
+
+}
