@@ -25,6 +25,13 @@ int search(list*, int);
 void printList(list*);
 
 int main() {
+    list* l = createList();
+
+    //for (int i = 0; i <= 10; i++)
+    //    add(l, i);
+
+    printList(l);
+    //printf("%d\n", l -> length);
 
     return 0;
 }
@@ -33,7 +40,6 @@ node* createNode(int element)
 {
     //if (element == NULL)
     	//return NULL;
-
     node* newNode = (node*) calloc(1, sizeof(node));
 
     if (newNode != NULL)
@@ -120,7 +126,16 @@ void printList(list* l)
     if (isEmpty(l))
         printf("[ ]\n");
 
+    node* tmp = l -> head;
+
+    if (l -> length == 1)
+        printf("[ %d ]", tmp -> element);
+
     printf("[ ");
-
-
+    for (int  i = 0; i < l -> length-1; i++) {
+      printf("%d, ", tmp -> element);
+      tmp = tmp -> next;
+    }
+    tmp = tmp -> next;
+    printf("%d ]\n", tmp -> element);
 }
