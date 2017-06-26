@@ -20,6 +20,8 @@ public class Pila<T> extends MeteSaca<T> {
      *         <code>null</code>.
      */
     @Override public void mete(T elemento) {
-        // Aquí va su código.
+        Nodo tmp = new Nodo(elemento);
+        tmp.siguiente = cabeza;
+        cabeza = tmp;
     }
 }
