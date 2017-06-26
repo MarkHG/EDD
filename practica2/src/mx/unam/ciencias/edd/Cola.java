@@ -20,6 +20,9 @@ public class Cola<T> extends MeteSaca<T> {
      *         <code>null</code>.
      */
     @Override public void mete(T elemento) {
+        if (elemento == null)
+            throw new IllegalArgumentException("Elemento NULL");
+
         Nodo tmp = new Nodo(elemento);
         rabo.siguiente = tmp;
         rabo = tmp;
