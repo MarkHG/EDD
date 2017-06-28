@@ -60,7 +60,26 @@ public class Arreglos {
      */
     public static <T> int
     busquedaBinaria(T[] arreglo, T elemento, Comparator<T> comparador) {
-        // Aquí va su código.
+        int ini = 0;
+        int fin = arreglo.length-1;
+        int mitad = (int) (ini + (fin-ini)/2);
+
+        while (ini < fin) {
+            mitad = (int) (ini + (fin-ini)/2);
+            int comp = comparador.compare(elemento, arreglo[mitad]);
+            if (comp == 0)
+                return mitad;
+            else if (comp == 1)
+                ini = mitad + 1;
+            else
+                fin = mitad - 1;
+        }
+
+        if (ini == fin)
+            if (comparador.compare(elemento, arreglo[ini]) == 0)
+                return ini;
+
+        return -1;
     }
 
     /**
